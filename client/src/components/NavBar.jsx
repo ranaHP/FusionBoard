@@ -13,7 +13,10 @@ import {
     ArrowDropDownOutlined
 } from '@mui/icons-material'
 import { setMode } from 'state'
-const NavBar = () => {
+const NavBar = ({
+    setIsSidebarOpen,
+    isSidebarOpen
+}) => {
     const dispatch = useDispatch()
     const theme = useTheme()
     return (
@@ -27,7 +30,7 @@ const NavBar = () => {
             <Toolbar sx={{ justifyContent: 'space-between' }} >
                 {/* left */}
                 <FlexBetween>
-                    <IconButton onClick={() => console.log('close opne sidebar')}>
+                    <IconButton onClick={() => setIsSidebarOpen(!isSidebarOpen)}>
                         <MenuIcon />
                     </IconButton>
                     <FlexBetween
