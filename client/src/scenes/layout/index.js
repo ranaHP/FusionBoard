@@ -1,5 +1,5 @@
 import { Box, useMediaQuery } from '@mui/material'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Outlet } from 'react-router-dom'
 import NavBar from 'components/NavBar'
 import SideBar from 'components/SideBar'
@@ -13,11 +13,17 @@ const Layout = () => {
   const { data } = useGetUserQuery(userID);
   console.log("🚀 ~ Layout ~ data:", data)
   
+  useEffect(() => {
+    console.log("🚀 ~ Layout ~ isNonMobile:", isNonMobile)
 
+    
+    setIsSidebarOpen(isNonMobile);
+  }, [isNonMobile])
+  
   return (
     <Box display={isNonMobile ? "flex" : "block"} width="100%" height="100%">
       <SideBar
-        // user={data || {}}
+        user={data || {}}
         isNonMobile={isNonMobile}
         drawerWidth="250px"
         isSidebarOpen={isSidebarOpen}
@@ -25,7 +31,7 @@ const Layout = () => {
       />
       <Box flexGrow={1}>
         <NavBar
-          // user={data || {}}
+          user={data || {}}
           isSidebarOpen={isSidebarOpen}
           setIsSidebarOpen={setIsSidebarOpen}
         />
