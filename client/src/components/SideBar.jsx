@@ -102,7 +102,7 @@ const Sidebar = ({
                             : "transparent",
                         color:
                           active === lcText
-                            ? theme.palette.primary[600]
+                            ? theme.palette.secondary[900]
                             : theme.palette.secondary[100],
                       }}
                     >
@@ -111,8 +111,8 @@ const Sidebar = ({
                           ml: "2rem",
                           color:
                             active === lcText
-                              ? theme.palette.primary[600]
-                              : theme.palette.secondary[200],
+                              ? theme.palette.secondary[900]
+                              : theme.palette.secondary[100],
                         }}
                       >
                         {icon}

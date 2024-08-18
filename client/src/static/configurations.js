@@ -1,1 +1,1 @@
-export const SITE_NAME = "Fiusion Board"
+export const SITE_NAME = "Fusion Board"

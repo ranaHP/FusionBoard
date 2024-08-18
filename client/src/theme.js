@@ -25,21 +25,22 @@ export const tokensDark = {
       600: "#191F45", // manually adjusted
       700: "#141937",
       800: "#0d1025",
-      900: "#070812",
+      900: "#000",
     },
     secondary: {
-      // yellow
-      50: "#f0f0f0", // manually adjusted
-      100: "#fff6e0",
-      200: "#ffedc2",
-      300: "#ffe3a3",
-      400: "#ffda85",
-      500: "#ffd166",
-      600: "#cca752",
-      700: "#997d3d",
-      800: "#665429",
-      900: "#332a14",
+      0: "#ffffff", // manually adjusted
+      50: "#fafafa",  // Almost white
+      100: "#f5f5f5", 
+      200: "#e0e0e0", 
+      300: "#bdbdbd", 
+      400: "#9e9e9e", 
+      500: "#757575",  // Base color
+      600: "#616161", 
+      700: "#424242", 
+      800: "#212121", 
+      900: "#0d0d0d",  // Darkest shade
     },
+    
   };
   
   // function that reverses the color palette
