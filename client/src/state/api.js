@@ -12,11 +12,16 @@ export const api = createApi({
         getProducts: build.query({
             query: (id) => `clinet/products`,
             providesTags: ['Products']
+        }),
+        getCustomers: build.query({
+            query: (id) => `clinet/customers`,
+            providesTags: ['Products']
         })
     })
 })
 
 export const {
     useGetUserQuery,
-    useGetProductsQuery
+    useGetProductsQuery,
+    useGetCustomersQuery
 } = api;

@@ -1,33 +1,38 @@
-import mongoose from 'mongoose';
-// so here iam goint to import mongoose and we are going to create mongoose schema here
+import mongoose from "mongoose";
 
-// so way we do that 
-const UserShema = new mongoose.Schema({
-    //  and in here we are going to pass number of properties
+const UserSchema = new mongoose.Schema(
+  {
     name: {
-        type: String,
-        required: true,
-        min: 2,
-        max: 100
+      type: String,
+      required: true,
+      min: 2,
+      max: 100,
+    },
+    email: {
+      type: String,
+      required: true,
+      max: 50,
+      unique: true,
     },
     password: {
-        type: String,
-        required: true,
-        min: 5,
+      type: String,
+      required: true,
+      min: 5,
     },
+    city: String,
+    state: String,
+    country: String,
+    occupation: String,
+    phoneNumber: String,
     transactions: Array,
     role: {
-        type: String,
-        enum: ['user', 'admin', 'superadmin'],
-        default: 'user'
+      type: String,
+      enum: ["user", "admin", "superadmin"],
+      default: "admin",
     },
-},
-    { timestamps: true } // so this just gives us automatically created date and updated data as well ;
+  },
+  { timestamps: true }
 );
 
-const User = mongoose.model("User", UserShema);
+const User = mongoose.model("User", UserSchema);
 export default User;
-
-// so again here , let me just explain everything thats happened.
-
-// mongoose data base will be use this shcema to make sure that every time you put actual data into database for particular user .it has fallow this format. so this
