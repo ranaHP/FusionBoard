@@ -14,7 +14,9 @@ import managementRoutes from "./routes/management.js";
 import User from './models/User.js';
 import Product from './models/Product.js';
 import ProductStat from './models/ProductStat.js';
-import {dataUser, dataProduct, dataProductStat} from './data/index.js';
+import {dataUser, dataProduct, dataProductStat, dataTransaction,dataOverallStat} from './data/index.js';
+import Transaction from "./models/Transaction.js";
+import OverallStat from "./models/OverallStat.js";
 
 
 /* Configurations */
@@ -49,7 +51,7 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 
 /* Routes */
-app.use('/clinet', clienRoutes);
+app.use('/client', clienRoutes);
 app.use('/general', generalRoutes);
 app.use('/sales', salesRoutes);
 app.use('/management', managementRoutes);
@@ -68,5 +70,7 @@ mongoose
         // User.insertMany(dataUser);
         // Product.insertMany(dataProduct);
         // ProductStat.insertMany(dataProductStat);
+        // Transaction.insertMany(dataTransaction);
+        // OverallStat.insertMany(dataOverallStat);
     })
     .catch((error) => console.log(`${error} did not connect`));

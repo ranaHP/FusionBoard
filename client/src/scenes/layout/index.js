@@ -11,10 +11,8 @@ const Layout = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true); 
   const userID = useSelector((state) => state.global.userId);
   const { data } = useGetUserQuery(userID);
-  console.log("🚀 ~ Layout ~ data:", data)
   
   useEffect(() => {
-    console.log("🚀 ~ Layout ~ isNonMobile:", isNonMobile)
 
     
     setIsSidebarOpen(isNonMobile);
