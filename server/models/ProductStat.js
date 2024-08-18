@@ -4,8 +4,8 @@ import mongoose from 'mongoose';
 // so way we do that 
 const ProductStatShema = new mongoose.Schema({
     //  and in here we are going to pass number of properties
-    productId: String,
-    yaerlySaleTotal: Number,
+    productId:  { type: mongoose.Types.ObjectId, ref: "Product" },
+    yearlySalesTotal: Number,
     yearlyTotalSoldUnits: Number,
     year: Number,
     monthlyData: [

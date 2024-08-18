@@ -6,17 +6,23 @@ import Transaction from '../models/Transaction.js'
 export const getProducts = async (req, res) => {
     try {
         const product = await Product.find();
-        const productWithStat = await Promise.all(
-            product.map(async (item) => {
-                const stat = await ProductStat.find({
-                    productId: item._id
-                })
-                return {
-                    ...item._doc,
-                    stat
-                }
-            })
-        )
+        const productWithStat = await Product.aggregate([
+          {
+            $lookup: {
+              from: "productstats", // The name of the ProductStat collection
+              localField: "_id", // The field in the Product collection to match
+              foreignField: "productId", // The field in the ProductStat collection to match
+              as: "stats" // The name of the array field that will hold the matched ProductStat documents
+            }
+          },
+          {
+            $unwind: {
+              path: "$stats",
+              preserveNullAndEmptyArrays: true // If you want to include products even if they have no corresponding stats
+            }
+          },
+         
+        ]);
         res.status(200).json(productWithStat);
     } catch (error) {
         res.status(400).json({
