@@ -4,7 +4,7 @@ import { Box, Button, Card, CardActions, CardContent, Collapse, Rating, Typograp
 import Header from 'components/Header';
 import React, { useState } from 'react'
 import { useGetProductsQuery } from 'state/api'
-import { isDefined } from 'utils/utils';
+
 const Product = ({
   _id,
   name,
@@ -104,7 +104,7 @@ const Products = () => {
               rating,
               category,
               supply,
-              stat,
+              stats,
             }) => (
               <Product
                 key={_id}
@@ -115,7 +115,7 @@ const Products = () => {
                 rating={rating}
                 category={category}
                 supply={supply}
-                stat={stat}
+                stat={stats}
               />
             )
           )}
